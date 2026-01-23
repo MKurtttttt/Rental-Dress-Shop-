@@ -1,4 +1,5 @@
 const { readInquiries, writeInquiry } = require('../utils/fileHandler')
+const { sendInquiryConfirmation, sendOwnerNotification } = require('../config/email')
 
 /**
  * Submit a new inquiry
@@ -15,6 +16,25 @@ const submitInquiry = async (req, res) => {
       message,
       status: 'new'
     })
+
+    // Send email notifications
+    try {
+      await sendInquiryConfirmation({
+        name,
+        email,
+        serviceType,
+        message
+      })
+      await sendOwnerNotification({
+        name,
+        email,
+        serviceType,
+        message
+      })
+    } catch (emailError) {
+      console.error('Email notification failed:', emailError)
+      // Don't fail the inquiry if email fails
+    }
 
     console.log(`Inquiry submitted: ${inquiry._id} - ${name} (${email})`)
     res.status(201).json({

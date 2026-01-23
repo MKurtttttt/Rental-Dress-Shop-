@@ -157,57 +157,77 @@ export default {
 .contact-intro {
   text-align: center;
   max-width: 700px;
-  margin: 0 auto 50px;
+  margin: 0 auto 60px;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--dark);
+  opacity: 0.8;
 }
 
 .success-message {
-  background: #d4edda;
-  color: #155724;
-  padding: 15px;
-  border-radius: 8px;
+  background: linear-gradient(135deg, var(--secondary), var(--accent));
+  color: var(--white);
+  padding: 18px 25px;
+  border-radius: 15px;
   margin-bottom: 30px;
   text-align: center;
+  box-shadow: 0 8px 20px var(--shadow);
+  border: 1px solid rgba(181, 201, 154, 0.2);
 }
 
 .error-message {
-  background: #f8d7da;
+  background: linear-gradient(135deg, #f8d7da, #f5c6cb);
   color: #721c24;
-  padding: 15px;
-  border-radius: 8px;
+  padding: 18px 25px;
+  border-radius: 15px;
   margin-bottom: 30px;
   text-align: center;
+  box-shadow: 0 8px 20px rgba(248, 215, 218, 0.3);
+  border: 1px solid rgba(245, 198, 203, 0.3);
 }
 
 .contact-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 50px;
+  gap: 60px;
 }
 
 form {
-  background: white;
-  padding: 35px;
-  border-radius: 16px;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+  background: var(--white);
+  padding: 45px;
+  border-radius: 20px;
+  box-shadow: 0 15px 35px var(--shadow);
+  border: 1px solid rgba(181, 201, 154, 0.1);
 }
 
 label {
   display: block;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
   font-weight: 600;
-  color: var(--dark);
+  color: var(--primary);
+  font-size: 0.95rem;
 }
 
 input,
 select,
 textarea {
   width: 100%;
-  padding: 12px;
-  margin-bottom: 18px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
+  padding: 14px 18px;
+  margin-bottom: 20px;
+  border-radius: 12px;
+  border: 2px solid rgba(124, 152, 133, 0.2);
   font-size: 1rem;
   font-family: inherit;
+  transition: all 0.3s ease;
+  background: var(--light);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--secondary);
+  box-shadow: 0 0 0 3px rgba(181, 201, 154, 0.1);
 }
 
 textarea {
@@ -217,18 +237,21 @@ textarea {
 form button {
   background: var(--secondary);
   border: none;
-  color: white;
-  padding: 14px;
+  color: var(--white);
+  padding: 16px;
   border-radius: 30px;
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
   width: 100%;
-  transition: 0.3s;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px var(--shadow);
 }
 
 form button:hover:not(:disabled) {
   background: var(--primary);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px var(--shadow);
 }
 
 form button:disabled {
@@ -237,33 +260,46 @@ form button:disabled {
 }
 
 .info {
-  padding: 20px;
+  padding: 30px;
+  background: var(--white);
+  border-radius: 20px;
+  box-shadow: 0 15px 35px var(--shadow);
+  border: 1px solid rgba(181, 201, 154, 0.1);
 }
 
 .info h3 {
   color: var(--primary);
-  margin-bottom: 15px;
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+  font-weight: 300;
 }
 
 .info p {
-  margin-bottom: 10px;
+  margin-bottom: 15px;
+  line-height: 1.7;
+  color: var(--dark);
+  opacity: 0.8;
 }
 
 .info a {
   color: var(--primary);
   text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
 }
 
 .info a:hover {
+  color: var(--secondary);
   text-decoration: underline;
 }
 
 iframe {
   width: 100%;
-  height: 280px;
-  border-radius: 14px;
+  height: 300px;
+  border-radius: 20px;
   border: 0;
-  margin-top: 20px;
+  margin-top: 25px;
+  box-shadow: 0 10px 25px var(--shadow);
 }
 
 @media (max-width: 1000px) {

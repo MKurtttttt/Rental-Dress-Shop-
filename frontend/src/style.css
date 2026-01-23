@@ -1,9 +1,12 @@
 :root {
-  --primary: #9d8189;
-  --secondary: #f4acb7;
-  --accent: #ffe5d9;
-  --light: #fff7f5;
-  --dark: #2f2f2f;
+  --primary: #2c5f2d;
+  --secondary: #97bc62;
+  --accent: #f9e4b7;
+  --light: #ffffff;
+  --dark: #1a1a1a;
+  --white: #ffffff;
+  --shadow: rgba(44, 95, 45, 0.15);
+  --gradient: linear-gradient(135deg, var(--accent) 0%, var(--light) 100%);
 }
 
 * {
@@ -13,10 +16,59 @@
   font-family: "Segoe UI", sans-serif;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  background: var(--light);
+  background: var(--gradient);
   color: var(--dark);
   line-height: 1.7;
+  min-height: 100vh;
+}
+
+/* Loading animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.8s ease-out;
+}
+
+/* Enhanced hover effects */
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px var(--shadow);
+}
+
+/* Beautiful scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--light);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--secondary);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
 }
 
 .container {
@@ -28,6 +80,7 @@ body {
 section {
   padding: 90px 60px;
   flex: 1;
+  position: relative;
 }
 
 .section-title {
@@ -35,13 +88,35 @@ section {
   color: var(--primary);
   margin-bottom: 40px;
   font-size: 2.5rem;
+  font-weight: 300;
+  letter-spacing: 1px;
+  position: relative;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: var(--secondary);
+  border-radius: 2px;
 }
 
 .card {
-  background: white;
+  background: var(--white);
   padding: 35px;
-  border-radius: 18px;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px var(--shadow);
+  border: 1px solid rgba(181, 201, 154, 0.2);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px var(--shadow);
 }
 
 .card h3 {
@@ -53,7 +128,7 @@ section {
 .btn {
   padding: 14px 32px;
   background: var(--secondary);
-  color: white;
+  color: var(--white);
   border-radius: 30px;
   text-decoration: none;
   font-weight: 600;
@@ -61,12 +136,13 @@ section {
   cursor: pointer;
   display: inline-block;
   transition: all 0.3s ease;
+  box-shadow: 0 4px 15px var(--shadow);
 }
 
 .btn:hover {
   background: var(--primary);
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 6px 20px var(--shadow);
 }
 
 .btn:focus {
@@ -76,10 +152,12 @@ section {
 
 .btn-primary {
   background: var(--primary);
+  color: var(--white);
 }
 
 .btn-primary:hover {
   background: var(--secondary);
+  color: var(--white);
 }
 
 @media (max-width: 1000px) {

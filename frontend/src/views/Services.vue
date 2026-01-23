@@ -70,48 +70,96 @@ export default {
 .intro {
   text-align: center;
   max-width: 800px;
-  margin: 0 auto 70px;
+  margin: 0 auto 80px;
 }
 
 .intro h2 {
   color: var(--primary);
-  margin-bottom: 15px;
-  font-size: 2.5rem;
+  margin-bottom: 20px;
+  font-size: 2.8rem;
+  font-weight: 300;
+  letter-spacing: 1px;
+}
+
+.intro p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--dark);
+  opacity: 0.8;
 }
 
 .services {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 40px;
+  gap: 35px;
+}
+
+.services .card {
+  padding: 45px 35px;
+  position: relative;
+  overflow: hidden;
+}
+
+.services .card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--gradient);
+  border-radius: 20px 20px 0 0;
 }
 
 .services .card p {
-  margin-bottom: 20px;
+  margin-bottom: 25px;
+  line-height: 1.7;
+  color: var(--dark);
+  opacity: 0.85;
 }
 
 .services .card ul {
-  padding-left: 18px;
-  margin-bottom: 25px;
+  padding-left: 20px;
+  margin-bottom: 30px;
+  list-style: none;
 }
 
 .services .card li {
-  margin-bottom: 10px;
+  margin-bottom: 12px;
+  position: relative;
+  padding-left: 25px;
+  color: var(--dark);
+  opacity: 0.8;
+}
+
+.services .card li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--secondary);
+  font-weight: bold;
 }
 
 .btn-cta {
   display: inline-block;
-  padding: 12px 28px;
+  padding: 14px 32px;
   background: var(--secondary);
-  color: white;
+  color: var(--white);
   border-radius: 30px;
   text-decoration: none;
   font-weight: 600;
   text-align: center;
-  transition: 0.3s;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px var(--shadow);
+  border: none;
+  cursor: pointer;
 }
 
 .btn-cta:hover {
   background: var(--primary);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px var(--shadow);
 }
 
 @media (max-width: 1000px) {
